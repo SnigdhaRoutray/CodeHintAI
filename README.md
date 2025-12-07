@@ -77,12 +77,6 @@ LLM Prompt Builder → Ollama (Mistral)
 ▼
 Hint Returned → Filtered → Sent Back to Extension
 
-
----
-
-##  Demo  
-(Add GIF here later — will record it in Step C)
-
 ---
 
 ## 🔧 Installation (Local Setup)
