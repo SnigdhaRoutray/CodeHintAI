@@ -65,6 +65,8 @@ No data leaves your computer.
 ##  Architecture  
 Chrome Extension (Popup)
 
+|
+
 ▼
 
 Extracts Problem Title + Description
