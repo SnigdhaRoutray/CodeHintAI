@@ -66,6 +66,7 @@ No data leaves your computer.
 Chrome Extension (Popup)
 
 ▼
+
 Extracts Problem Title + Description
 
 ▼
