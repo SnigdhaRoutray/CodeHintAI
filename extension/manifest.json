@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "CodeHintAI",
+  "version": "1.0",
+  "description": "Progressive hint assistant for coding problems (local LLM).",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["http://localhost:3000/*", "https://leetcode.com/*", "https://www.hackerrank.com/*"],
+  "action": {
+    "default_title": "CodeHintAI",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/*", "https://www.hackerrank.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

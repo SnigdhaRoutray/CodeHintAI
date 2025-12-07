@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CodeHintAI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>CodeHintAI</h2>
+    <div class="subtitle">Progressive hints — not solutions</div>
+
+    <label for="level">Hint level</label>
+    <select id="level">
+      <option value="1">1 — Concept</option>
+      <option value="2">2 — Design</option>
+      <option value="3">3 — Pseudocode</option>
+      <option value="4">4 — Skeleton</option>
+    </select>
+
+    <label for="attempt" style="margin-top:6px;">Your attempt (optional)</label>
+    <textarea id="attempt" placeholder="Paste your code or notes here (optional)"></textarea>
+
+    <div class="row" style="margin-top:6px;">
+      <button id="getHint">Get Hint</button>
+      <button id="copyHint">Copy Hint</button>
+    </div>
+
+    <h3 style="margin:0; margin-top:6px; font-size:14px;">Hint</h3>
+    <div id="hintArea">No hint yet.</div>
+
+    <div class="row" style="margin-top:6px;">
+      <div class="note">Model: Mistral (local)</div>
+      <div class="note" id="statusNote"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

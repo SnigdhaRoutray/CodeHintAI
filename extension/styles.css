@@ -1,0 +1,155 @@
+/* Minimal white + pink accent theme for CodeHintAI */
+
+:root{
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --muted: #f5f5f8;
+  --text: #222222;
+  --accent: #ff7ebd;        /* pink accent */
+  --accent-2: #ff6fb3;      /* slightly deeper pink */
+  --muted-border: #ececec;
+}
+
+/* Global layout */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  width: 360px;
+  padding: 16px;
+  background: linear-gradient(180deg, #fbfbfc 0%, #ffffff 100%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Card container */
+.container {
+  background: var(--surface);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(20,20,30,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--muted-border);
+}
+
+/* Title */
+h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--accent-2);
+  letter-spacing: -0.2px;
+}
+
+/* Small subtitle line */
+.subtitle {
+  text-align:center;
+  font-size:12px;
+  color:#666;
+  margin-top:-6px;
+}
+
+/* Label spacing */
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Inputs */
+select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--muted-border);
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+select:focus, textarea:focus {
+  box-shadow: 0 6px 18px rgba(255,126,189,0.08);
+  border-color: var(--accent-2);
+}
+
+textarea {
+  font-family: "Courier New", monospace;
+  resize: vertical;
+  min-height:72px;
+}
+
+/* Buttons */
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+#getHint {
+  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 8px 20px rgba(255,126,189,0.12);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+#getHint:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255,126,189,0.16); }
+
+#copyHint {
+  padding: 8px 10px;
+  background: transparent;
+  border: 1px solid var(--muted-border);
+  color: #444;
+  font-size: 13px;
+}
+
+/* Hint Section */
+#hintArea {
+  white-space: pre-wrap;
+  background: var(--muted);
+  border-left: 4px solid var(--accent);
+  padding: 12px;
+  border-radius: 8px;
+  min-height: 72px;
+  font-size: 13px;
+  color: #222;
+}
+
+/* Helper meta row */
+.row {
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* Small note text */
+.note {
+  font-size:12px;
+  color:#777;
+}
+
+/* Loading animation (pink) */
+.loader {
+  border: 3px solid #eee;
+  border-top: 3px solid var(--accent-2);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive: reduce width slightly if cramped */
+@media (max-width:400px){
+  body { padding:12px; width:320px; }
+}
