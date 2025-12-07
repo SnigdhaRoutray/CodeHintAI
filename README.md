@@ -6,7 +6,7 @@
 
 ---
 
-**AI-powered Chrome extension that gives progressive coding hints — not full solutions.**  
+**AI-powered Chrome extension that gives progressive coding hints.**  
 Built with a local LLM (Mistral via Ollama) + custom backend for safe hint generation.
 
 ---
