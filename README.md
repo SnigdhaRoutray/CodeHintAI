@@ -65,19 +65,20 @@ No data leaves your computer.
 ##  Architecture  
 Chrome Extension (Popup)
 
-|
-
 ▼
 
 Extracts Problem Title + Description
 
 ▼
+
 POST /generate_hint → Backend (Node.js)
 
 ▼
+
 LLM Prompt Builder → Ollama (Mistral)
 
 ▼
+
 Hint Returned → Filtered → Sent Back to Extension
 
 ---
