@@ -21,25 +21,25 @@ Most students struggle while solving coding problems:
 ---
 
 ##  Features  
-### 🔹 Progressive Hint Levels  
+###  Progressive Hint Levels  
 - **Level 1:** High-level concept  
 - **Level 2:** Design idea / approach  
 - **Level 3:** Pseudocode-like thinking (still no solutions)  
 - **Level 4:** Stepwise outline, but *never code*  
 
-### 🔹 Prevents Full Solutions  
+###  Prevents Full Solutions  
 Custom filters Strip:  
 - Code blocks  
 - Return statements  
 - Language keywords  
 - Line-by-line pseudocode  
 
-### 🔹 Works on LeetCode, HackerRank & more  
+###  Works on LeetCode, HackerRank & more  
 Automatically extracts:  
 - Problem title  
 - Problem description  
 
-### 🔹 Local & Private  
+###  Local & Private  
 Uses **Ollama (Mistral)** running completely offline.  
 No data leaves your computer.
 
