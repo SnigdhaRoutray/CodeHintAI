@@ -1,4 +1,4 @@
-// popup.js - UI logic for CodeHintAI popup
+
 
 const HINT_URL = 'http://127.0.0.1:3000/generate_hint';
 const levelEl = document.getElementById('level');
@@ -8,15 +8,15 @@ const copyBtn = document.getElementById('copyHint');
 const hintArea = document.getElementById('hintArea');
 const statusNote = document.getElementById('statusNote');
 
-// Load saved draft (if any)
+
 try {
   const savedLevel = localStorage.getItem('codehintai_level');
   const savedAttempt = localStorage.getItem('codehintai_attempt');
   if (savedLevel) levelEl.value = savedLevel;
   if (savedAttempt) attemptEl.value = savedAttempt;
-} catch (e) { /* ignore */ }
+} catch (e) { }
 
-// Helper: show loader
+
 function showLoading() {
   hintArea.innerHTML = '<div class="loader"></div><div style="text-align:center;margin-top:8px;color:#666;font-size:13px;">Fetching hint…</div>';
   getBtn.disabled = true;
@@ -24,7 +24,7 @@ function showLoading() {
   statusNote.innerText = "Waiting for response...";
 }
 
-// Helper: show hint text
+
 function showHint(text) {
   hintArea.textContent = text || "No hint returned.";
   getBtn.disabled = false;
@@ -32,7 +32,7 @@ function showHint(text) {
   statusNote.innerText = "";
 }
 
-// Helper: show error
+
 function showError(msg) {
   hintArea.textContent = "Error: " + msg;
   getBtn.disabled = false;
@@ -48,23 +48,22 @@ copyBtn.addEventListener('click', () => {
     return;
   }
   navigator.clipboard.writeText(text).then(() => {
-    // small visual feedback
+    
     copyBtn.textContent = "Copied!";
     setTimeout(() => copyBtn.textContent = "Copy Hint", 1200);
   }).catch(() => alert("Failed to copy."));
 });
 
-// Main: get hint
+
 getBtn.addEventListener('click', async () => {
-  // Save draft
+ 
   try {
     localStorage.setItem('codehintai_level', levelEl.value);
     localStorage.setItem('codehintai_attempt', attemptEl.value);
-  } catch (e) { /* ignore */ }
+  } catch (e) { }
 
   showLoading();
 
-  // Scrape the active tab for title & description
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab || !tab.id) {
@@ -83,7 +82,6 @@ getBtn.addEventListener('click', async () => {
           if (el && el.innerText && el.innerText.trim().length > 20) { description = el.innerText; break; }
         }
         if (!description) {
-          // fallback to article or main content
           description = document.querySelector('article')?.innerText || document.querySelector('main')?.innerText || "";
         }
         if (description.length > 3000) description = description.slice(0, 3000);
@@ -105,7 +103,6 @@ getBtn.addEventListener('click', async () => {
       attempt: attemptEl.value || ""
     };
 
-    // send to local backend
     const resp = await fetch(HINT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -128,7 +125,6 @@ getBtn.addEventListener('click', async () => {
     showHint(data.hint);
 
   } catch (err) {
-    // If fetch failed due to connection, try informing user
     console.error(err);
     if (err && err.message && err.message.includes('Failed to fetch')) {
       showError("Cannot reach backend at http://127.0.0.1:3000. Is server running?");
