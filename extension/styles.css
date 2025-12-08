@@ -1,16 +1,14 @@
-/* Minimal white + pink accent theme for CodeHintAI */
 
 :root{
   --bg: #ffffff;
   --surface: #ffffff;
   --muted: #f5f5f8;
   --text: #222222;
-  --accent: #ff7ebd;        /* pink accent */
-  --accent-2: #ff6fb3;      /* slightly deeper pink */
+  --accent: #ff7ebd;        
+  --accent-2: #ff6fb3;     
   --muted-border: #ececec;
 }
 
-/* Global layout */
 body {
   font-family: 'Inter', Arial, sans-serif;
   width: 360px;
@@ -20,7 +18,6 @@ body {
   -webkit-font-smoothing:antialiased;
 }
 
-/* Card container */
 .container {
   background: var(--surface);
   padding: 18px;
@@ -32,7 +29,6 @@ body {
   border: 1px solid var(--muted-border);
 }
 
-/* Title */
 h2 {
   margin: 0;
   font-size: 20px;
@@ -42,7 +38,6 @@ h2 {
   letter-spacing: -0.2px;
 }
 
-/* Small subtitle line */
 .subtitle {
   text-align:center;
   font-size:12px;
@@ -50,14 +45,12 @@ h2 {
   margin-top:-6px;
 }
 
-/* Label spacing */
 label {
   font-size: 13px;
   font-weight: 600;
   color: #444;
 }
 
-/* Inputs */
 select, textarea {
   width: 100%;
   padding: 10px 12px;
@@ -80,7 +73,6 @@ textarea {
   min-height:72px;
 }
 
-/* Buttons */
 button {
   border: none;
   cursor: pointer;
@@ -106,8 +98,6 @@ button {
   color: #444;
   font-size: 13px;
 }
-
-/* Hint Section */
 #hintArea {
   white-space: pre-wrap;
   background: var(--muted);
@@ -119,7 +109,6 @@ button {
   color: #222;
 }
 
-/* Helper meta row */
 .row {
   display:flex;
   gap:8px;
@@ -127,13 +116,11 @@ button {
   justify-content:space-between;
 }
 
-/* Small note text */
 .note {
   font-size:12px;
   color:#777;
 }
 
-/* Loading animation (pink) */
 .loader {
   border: 3px solid #eee;
   border-top: 3px solid var(--accent-2);
@@ -149,7 +136,6 @@ button {
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive: reduce width slightly if cramped */
 @media (max-width:400px){
   body { padding:12px; width:320px; }
 }
