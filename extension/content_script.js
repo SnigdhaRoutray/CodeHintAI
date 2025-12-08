@@ -1,5 +1,4 @@
-// content_script.js
-// Adds a small unobtrusive badge to show CodeHintAI is available
+
 (function addBadge(){
   if (document.getElementById('codehintai-badge')) return;
   const div = document.createElement('div');
@@ -8,7 +7,6 @@
   div.textContent = 'CodeHintAI';
   div.title = 'Click the extension icon for hints';
   div.onclick = () => {
-    // open the extension popup programmatically is limited; we rely on user clicking the browser action
     alert('Click the CodeHintAI extension icon (top-right) to open the hint popup.');
   };
   document.body.appendChild(div);
