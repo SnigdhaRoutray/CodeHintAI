@@ -1,5 +1,5 @@
-// server.js
-// Backend server for CodeHintAI — communicates with Ollama to generate hints.
+
+// Backend server for CodeHintAI- communicates with Ollama to generate hints.
 
 import express from 'express';
 import cors from 'cors';
@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Ollama local endpoint
+
 const OLLAMA_URL = "http://localhost:11434/api/generate";
 
 app.post("/generate_hint", async (req, res) => {
@@ -33,14 +33,12 @@ app.post("/generate_hint", async (req, res) => {
 
         const data = await response.json();
 
-        // Ollama's response shape may vary; try the common fields
         let hint = "";
         if (data?.response) hint = data.response;
         else if (Array.isArray(data?.choices) && data.choices[0]?.text) hint = data.choices[0].text;
         else if (data?.output) hint = data.output;
-        else hint = JSON.stringify(data).slice(0, 500); // fallback for debugging
+        else hint = JSON.stringify(data).slice(0, 500); 
 
-        // Apply safety filters
         hint = postFilter(hint, level);
 
         res.json({ hint });
@@ -53,5 +51,5 @@ app.post("/generate_hint", async (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`⭐ CodeHintAI backend running on http://localhost:${PORT}`);
+    console.log(` CodeHintAI backend running on http://localhost:${PORT}`);
 });
