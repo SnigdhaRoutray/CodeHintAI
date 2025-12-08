@@ -1,4 +1,3 @@
-// prompt_templates.js
 // Creates controlled prompts so the model only gives hints, not full solutions.
 
 export function makePrompt(level, title, text, attempt) {
